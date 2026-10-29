@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#04070f">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>Mordida Selvagem</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="bg"></div>
+
+<section id="menu" class="scr">
+  <div class="panel">
+    <h1>Mordida<br>Selvagem</h1>
+    <p class="sub">Fuja da parede de bocas! Vence quem pegar 30 peixes ou for o último vivo.</p>
+    <button class="btn b1" id="btnOnline">◉ Modo Online</button>
+    <button class="btn b2" id="btnLocal">◈ Modo Local</button>
+    <div class="devices"><span>PC</span><span>CELULAR</span><span>TABLET</span></div>
+    <p class="how">Online: todo mundo joga junto, em qualquer aparelho.<br>Toque e segure na tela: o peixe nada até o seu dedo. No PC: mouse, WASD ou setas.</p>
+  </div>
+</section>
+
+<section id="online" class="scr hidden">
+  <div class="panel">
+    <h2>Modo Online</h2>
+    <input id="nick" maxlength="10" placeholder="Seu nome" autocomplete="off" autocapitalize="words" enterkeyhint="done">
+    <button class="btn b1" id="btnCreate">Criar sala</button>
+    <div class="or">ou entre numa sala</div>
+    <input id="code" maxlength="4" placeholder="CÓDIGO" autocomplete="off" autocapitalize="characters" spellcheck="false" enterkeyhint="go">
+    <button class="btn b2" id="btnJoin">Entrar na sala</button>
+    <p id="st" class="st"></p>
+    <button class="btn b3" data-back>Voltar</button>
+  </div>
+</section>
+
+<section id="lobby" class="scr hidden">
+  <div class="panel">
+    <h2>Sala <span id="roomCode"></span></h2>
+    <p class="sub">1 a 5 jogadores · <span id="count"></span></p>
+    <ul id="players"></ul>
+    <button class="btn b2" id="btnShare">Compartilhar link da sala</button>
+    <p id="shareMsg" class="st"></p>
+    <button class="btn b1" id="btnStart">Iniciar jogo</button>
+    <p id="wait" class="st hidden">Aguardando o anfitrião iniciar...</p>
+    <button class="btn b3" data-back>Sair</button>
+  </div>
+</section>
+
+<section id="local" class="scr hidden">
+  <div class="panel">
+    <h2>Modo Local</h2>
+    <p class="sub">Quantos jogadores neste aparelho?</p>
+    <div id="nums"></div>
+    <p class="how">PC: J1 WASD · J2 setas · J3 IJKL · J4 TFGH · J5 Num 8 4 5 6<br>Celular/tablet: toque perto do seu peixe e arraste (use vários dedos)</p>
+    <button class="btn b3" data-back>Voltar</button>
+  </div>
+</section>
+
+<section id="game" class="scr hidden">
+  <div id="stage">
+    <canvas id="cv"></canvas>
+    <div id="net" class="hidden"></div>
+    <button id="btnExit" title="Sair">✕</button>
+  </div>
+  <div id="over" class="hidden">
+    <div class="panel">
+      <h2 id="overTxt"></h2>
+      <button class="btn b1" id="btnAgain">Jogar de novo</button>
+      <p id="overWait" class="st hidden">Aguardando o anfitrião...</p>
+      <button class="btn b3" id="btnMenu">Menu</button>
+    </div>
+  </div>
+</section>
+
+<script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
+<script>if(typeof Peer==='undefined')document.write('<script src="https://cdn.jsdelivr.net/npm/peerjs@1.5.4/dist/peerjs.min.js"><\/script>')</script>
+<script src="script.js"></script>
+</body>
+</html>
